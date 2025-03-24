@@ -143,8 +143,9 @@ int main()
             break;
 
         case 6:
+            //Realizar una función que indique si un elemento dado se encuentra en un arreglo de caracteres.
 
-            printf("6. ");
+            printf("6. Realizar una función que indique si un elemento dado se encuentra en un arreglo de caracteres.");
 
 
             system("pause");
