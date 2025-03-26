@@ -14,6 +14,7 @@ void mostrarArrayChar (char arreglo[], int validos);//ej6 1
 int encontrarElemento (char arreglo[], int validos, char caracterUsuario);//ej6 2
 void ordenarArray(char arrayDado[], int validos);
 char obtenerMaximoChar(char arreglo[], int validos);
+int determinarSiEsCapicua(int arreglo[],int validos);
 
 
 int main()
@@ -32,6 +33,7 @@ int main()
     char arrayE6[20];
     char arrayE7[20];
     char arrayE8[20];
+    int arrayE9[20];
 
     do
     {
@@ -174,7 +176,7 @@ int main()
             break;
 
         case 8: //Realizar una función que obtenga el máximo carácter de un arreglo dado.
-            printf ("Realizar una función que obtenga el máximo carácter de un arreglo dado.");
+            printf ("Realizar una función que obtenga el máximo carácter de un arreglo dado.\n\n");
 
             validos = cargarArrayChar (arrayE8, 20);
             mostrarArrayChar(arrayE8, validos);
@@ -183,11 +185,36 @@ int main()
 
             printf("El maximo char es %c", maxChar);
 
+            system("pause");
+            system("cls");
+            break;
 
+        case 9: //9. Realizar una función que determine si un arreglo es capicúa.
+
+            printf("9. Realizar una función que determine si un arreglo es capicúa.\n\n");
+
+            validos = cargarArray(arrayE9, 20);
+
+            int esCapicua = determinarSiEsCapicua(arrayE9, validos);
+
+            if (esCapicua == 1){
+
+                printf("\033[0;32m");
+                printf("\nEl arreglo es capicua.\n\n");
+                printf("\033[0m");
+
+            }else{
+                printf("\033[0;31m");
+                printf("\nEl arreglo NO es capicua.\n\n");
+                printf("\033[0m");
+            }
+
+            mostrarArray(arrayE9, validos);
 
             system("pause");
             system("cls");
             break;
+
 
         default:
             printf("Opcion incorrecta.\n");
@@ -212,7 +239,7 @@ int cargarArray (int arreglo[], int dim)
 
     while (control == 's' && i<dim)
     {
-        printf ("\n Ingrese un valor a su Arreglo: ");
+        printf ("\nIngrese un valor a su Arreglo: ");
         scanf ("%i", &arreglo[i]);
 
         i++;
@@ -425,4 +452,35 @@ char obtenerMaximoChar(char arreglo[], int validos){
         }
     }
     return maximoChar;
+}
+
+
+//9 Realizar una función que determine si un arreglo es capicúa. (devuelve 1 si es y 0 si no es)
+
+int determinarSiEsCapicua(int arreglo[],int validos){
+
+    int arregloAux[20];
+    int esCapicua = 1;  //asumo que los numeros son capicuas
+    int contador = 0;
+    int indice = validos - 1;
+
+    //recorro el arreglo y creo una copia en aux pero en orden inverso
+
+    for(int i = 0; i < validos; i++){
+
+        arregloAux[i] = arreglo[indice];
+        indice--;
+    }
+
+    //comparo ambos arreglos, si son iguales es capicua
+
+    while(contador < validos){
+
+        if(arreglo[contador] != arregloAux[contador]){
+            esCapicua = 0;
+        }
+        contador++;
+    }
+
+    return esCapicua;
 }
