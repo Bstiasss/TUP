@@ -15,6 +15,7 @@ int encontrarElemento (char arreglo[], int validos, char caracterUsuario);//ej6 
 void ordenarArray(char arrayDado[], int validos);
 char obtenerMaximoChar(char arreglo[], int validos);
 int determinarSiEsCapicua(int arreglo[],int validos);
+void invertirArreglo(int arreglo[], int validos);
 
 
 int main()
@@ -34,6 +35,7 @@ int main()
     char arrayE7[20];
     char arrayE8[20];
     int arrayE9[20];
+    int arrayE10[20];
 
     do
     {
@@ -215,6 +217,22 @@ int main()
             system("cls");
             break;
 
+        case 10:  // 10 . Realizar una función que invierta los elementos de un arreglo.  (sin utilizar un arreglo auxiliar)
+
+            printf("10. Realizar una función que invierta los elementos de un arreglo. (sin utilizar un arreglo auxiliar)\n");
+
+            validos = cargarArray(arrayE10, 20);
+            mostrarArray(arrayE10, validos);
+
+            invertirArreglo(arrayE10, validos);
+
+            mostrarArray(arrayE10, validos);
+
+
+
+            system("pause");
+            system("cls");
+            break;
 
         default:
             printf("Opcion incorrecta.\n");
@@ -483,4 +501,19 @@ int determinarSiEsCapicua(int arreglo[],int validos){
     }
 
     return esCapicua;
+}
+
+
+// 10 . Realizar una función que invierta los elementos de un arreglo.  (sin utilizar un arreglo auxiliar)
+
+void invertirArreglo(int arreglo[], int validos){
+
+    int auxiliar;
+    int vueltas = validos /2;
+
+    for(int i = 0; i < vueltas; i++){
+        auxiliar = arreglo[i];
+        arreglo[i] = arreglo[validos -1 -i];
+        arreglo[validos -1 -i] = auxiliar;
+    }
 }
