@@ -16,7 +16,16 @@ void ordenarArray(char arrayDado[], int validos);
 char obtenerMaximoChar(char arreglo[], int validos);
 int determinarSiEsCapicua(int arreglo[],int validos);
 void invertirArreglo(int arreglo[], int validos);
-
+void ordenacionSeleccion(int a[], int cantVal);
+int posicionMenor(int a[], int cantVal, int pos);
+int posicionMenor(int a[], int cantVal, int pos);
+void insertar(int a[], int u, int dato);
+void ordenacionSeleccionChar(char a[], int cantVal);
+int posicionMenorChar(char a[], int cantVal, int pos);
+void ordenacionInsercionChar(char a[], int cantVal);
+void insertarChar(char a[], int u, char dato);
+int intercalarArray (char arregloA[], char arregloB[],char arregloC[], int validosA, int validosB, int dimC);//ej12
+void generarVectorSumatoria(int arregloEntrada[], int validosEntrada, int arregloSalida[], int validosSalida);
 
 int main()
 {
@@ -36,6 +45,14 @@ int main()
     char arrayE8[20];
     int arrayE9[20];
     int arrayE10[20];
+    char arrayE11[20];
+    char arrayE12a[20];
+    char arrayE12b[20];
+    char arrayE12c[20];
+    int validosA;
+    int validosB;
+
+
 
     do
     {
@@ -167,7 +184,7 @@ int main()
 
             //pedirle al usuario la carga de un arreglo char
             validos = cargarArrayChar (arrayE7, 20);
-          //  printf("validos = %d", validos);
+            //  printf("validos = %d", validos);
             mostrarArrayChar(arrayE7, validos);
 
             ordenarArray(arrayE7, validos);
@@ -199,13 +216,16 @@ int main()
 
             int esCapicua = determinarSiEsCapicua(arrayE9, validos);
 
-            if (esCapicua == 1){
+            if (esCapicua == 1)
+            {
 
                 printf("\033[0;32m");
                 printf("\nEl arreglo es capicua.\n\n");
                 printf("\033[0m");
 
-            }else{
+            }
+            else
+            {
                 printf("\033[0;31m");
                 printf("\nEl arreglo NO es capicua.\n\n");
                 printf("\033[0m");
@@ -233,6 +253,76 @@ int main()
             system("pause");
             system("cls");
             break;
+
+        case 11:
+            printf("11. Ordenar un arreglo según los siguientes métodos \n");
+
+            validos = cargarArrayChar(arrayE11, 20);
+            mostrarArrayChar(arrayE11, validos);
+
+            char arrayE11B[20];
+
+            for(int i = 0; i < validos; i++)
+            {
+
+                arrayE11B[i] = arrayE11[i];
+
+            }
+
+            printf("Ordenamiento por Seleccion\n");
+            ordenacionSeleccionChar(arrayE11, validos);
+            mostrarArrayChar(arrayE11, validos);
+
+            mostrarArrayChar(arrayE11B, validos);
+            printf("Ordenamiento por Insercion\n");
+            ordenacionSeleccionChar(arrayE11B, validos);
+            mostrarArrayChar(arrayE11B, validos);
+
+            system("pause");
+            system("cls");
+            break;
+
+        case 12:
+            printf ("Dados dos arreglos ordenados alfabeticamente, crear un tercer arreglo con los elementos");
+            printf ("de los dos primeros intercalados,de manera que quede un arreglo tambien ordenado alfabeticamente.\n\n");
+
+            validosA = cargarArrayChar(arrayE12a, 20);//cargo arreglo 1
+            mostrarArrayChar(arrayE12a, validosA);
+
+            validosB = cargarArrayChar(arrayE12b, 20);//cargo arreglo 1
+            mostrarArrayChar(arrayE12b, validosB);
+
+            int validosC = intercalarArray(arrayE12a, arrayE12b, arrayE12c, validosA, validosB, 20);
+            mostrarArrayChar(arrayE12c, validosC);//creo el 3er arreglo intercal
+
+
+
+            system("pause");
+            system("cls");
+            break;
+
+        case 13:
+            printf("13. Dado el vector {1,5,6,7,8} escribir un programa que genere otro vector con la suma del contenido de todo los elementos anteriores al índice actual: {1,6,12,19,27}.\n\n ");
+
+            int arrayE13[] = {1,5,6,7,8};
+            int arraySalida[5];
+
+            printf("\nArreglo Entrada: \n");
+            mostrarArray(arrayE13, 5);
+
+            generarVectorSumatoria(arrayE13, 5, arraySalida, 5);
+
+            printf("\nArreglo Salida: \n");
+            mostrarArray(arraySalida, 5);
+
+
+
+
+            system("pause");
+            system("cls");
+            break;
+
+
 
         default:
             printf("Opcion incorrecta.\n");
@@ -279,7 +369,7 @@ void mostrarArray (int arreglo[], int validos)
 
     for (int i=0; i<validos; i++)
     {
-        printf ("\narray [%i] es %i", i,  arreglo[i]);
+        printf ("|%i|", arreglo[i]);
     }
     printf ("\n\n");
 }
@@ -390,7 +480,7 @@ void mostrarArrayChar (char arreglo[], int validos)
 
     for (int i=0; i<validos; i++)
     {
-        printf ("\narray [%i] es %c", i,  arreglo[i]);
+        printf ("|%c|",  arreglo[i]);
     }
     printf ("\n\n");
 }
@@ -447,7 +537,8 @@ void ordenarArray(char arrayDado[], int validos)
 
         }
     }
-    for(int i = 0; i < validos; i++){
+    for(int i = 0; i < validos; i++)
+    {
 
         arrayDado[i] = arrayOrdenado[i];
 
@@ -458,13 +549,16 @@ void ordenarArray(char arrayDado[], int validos)
 
 //8 Realizar una función que obtenga el máximo carácter de un arreglo dado.
 
-char obtenerMaximoChar(char arreglo[], int validos){
+char obtenerMaximoChar(char arreglo[], int validos)
+{
 
     char maximoChar = arreglo[0];  // caso de que tenga 1 solo elemento
 
-    for(int i=0; i < validos; i++){
+    for(int i=0; i < validos; i++)
+    {
 
-        if(arreglo[i] > maximoChar){
+        if(arreglo[i] > maximoChar)
+        {
 
             maximoChar = arreglo[i];
         }
@@ -475,7 +569,8 @@ char obtenerMaximoChar(char arreglo[], int validos){
 
 //9 Realizar una función que determine si un arreglo es capicúa. (devuelve 1 si es y 0 si no es)
 
-int determinarSiEsCapicua(int arreglo[],int validos){
+int determinarSiEsCapicua(int arreglo[],int validos)
+{
 
     int arregloAux[20];
     int esCapicua = 1;  //asumo que los numeros son capicuas
@@ -484,7 +579,8 @@ int determinarSiEsCapicua(int arreglo[],int validos){
 
     //recorro el arreglo y creo una copia en aux pero en orden inverso
 
-    for(int i = 0; i < validos; i++){
+    for(int i = 0; i < validos; i++)
+    {
 
         arregloAux[i] = arreglo[indice];
         indice--;
@@ -492,9 +588,11 @@ int determinarSiEsCapicua(int arreglo[],int validos){
 
     //comparo ambos arreglos, si son iguales es capicua
 
-    while(contador < validos){
+    while(contador < validos)
+    {
 
-        if(arreglo[contador] != arregloAux[contador]){
+        if(arreglo[contador] != arregloAux[contador])
+        {
             esCapicua = 0;
         }
         contador++;
@@ -506,14 +604,221 @@ int determinarSiEsCapicua(int arreglo[],int validos){
 
 // 10 . Realizar una función que invierta los elementos de un arreglo.  (sin utilizar un arreglo auxiliar)
 
-void invertirArreglo(int arreglo[], int validos){
+void invertirArreglo(int arreglo[], int validos)
+{
 
     int auxiliar;
     int vueltas = validos /2;
 
-    for(int i = 0; i < vueltas; i++){
+    for(int i = 0; i < vueltas; i++)
+    {
         auxiliar = arreglo[i];
         arreglo[i] = arreglo[validos -1 -i];
         arreglo[validos -1 -i] = auxiliar;
+    }
+}
+
+//selecciono el menor de todos los valores a la derecha de la posicion actual
+//y lo voy trayendo a la posicion actual
+//en cada vuelta
+
+void ordenacionSeleccion(int a[], int cantVal)
+{
+
+    int posMenor;
+    int i = 0;
+    int aux;
+    while(i < cantVal - 1)    //llego hasta la ultima posicion
+    {
+        posMenor = posicionMenor(a, cantVal, i);
+        aux = a[posMenor];
+        a[posMenor] = a[i];
+        a[i] = aux;
+        i++;
+    }
+}
+
+
+int posicionMenor(int a[], int cantVal, int pos)
+{
+
+    int menor = a[pos];
+    int posMenor = pos;
+    int index = pos + 1;
+    while(index < cantVal)
+    {
+        if(menor > a[index])
+        {
+            menor = a[index];
+            posMenor = index;
+        }
+        index++;
+    }
+
+    return posMenor;
+}
+
+void ordenacionInsercion(int a[], int cantVal)
+{
+    int u=0;
+    while(u < cantVal - 1)
+    {
+        //llega hasta la posicion del anteultimo elemento del arreglo
+        insertar(a, u, a[u+1]);
+        u++;
+    }
+}
+
+
+
+
+void insertar(int a[], int u, int dato)
+{
+    int i = u; //ultima pos valida izq
+    while(i >=0 && dato < a[i])
+    {
+        a[i+1] = a[i];
+        i--;
+    }
+    a[i+1] = dato;
+}
+
+void ordenacionSeleccionChar(char a[], int cantVal)
+{
+
+    int posMenor;
+    int i = 0;
+    int aux;
+    while(i < cantVal - 1)    //llego hasta la ultima posicion
+    {
+        posMenor = posicionMenorChar(a, cantVal, i);
+        aux = a[posMenor];
+        a[posMenor] = a[i];
+        a[i] = aux;
+        i++;
+    }
+}
+
+
+int posicionMenorChar(char a[], int cantVal, int pos)
+{
+
+    int menor = a[pos];
+    int posMenor = pos;
+    int index = pos + 1;
+    while(index < cantVal)
+    {
+        if(menor > a[index])
+        {
+            menor = a[index];
+            posMenor = index;
+        }
+        index++;
+    }
+
+    return posMenor;
+}
+
+void ordenacionInsercionChar(char a[], int cantVal)
+{
+    int u=0;
+    while(u < cantVal - 1)
+    {
+        //llega hasta la posicion del anteultimo elemento del arreglo
+        insertarChar(a, u, a[u+1]);
+        u++;
+    }
+}
+
+
+
+
+void insertarChar(char a[], int u, char dato)
+{
+    int i = u; //ultima pos valida izq
+    while(i >=0 && dato < a[i])
+    {
+        a[i+1] = a[i];
+        i--;
+    }
+    a[i+1] = dato;
+}
+
+//12 - Dados dos arreglos ordenados alfabéticamente, crear un tercer arreglo con los elementos de
+//los dos primeros intercalados, de manera que quede un arreglo también ordenado alfabéticamente.
+
+/*int intercalarArray (char arregloA[], char arregloB[],char arregloC[], int validosA, int validosB)
+{
+    int contadorDeposicionC = 0;
+
+    for (int i=0; i<validosA; i++)
+    {
+        if (arregloA[i]<arregloB[i])
+        {
+            arregloC[contadorDeposicionC]=arregloA[i];
+            contadorDeposicionC++;
+            arregloC[contadorDeposicionC]=arregloB[i];
+            contadorDeposicionC++;
+        }
+
+        else
+        {
+            arregloC[contadorDeposicionC]=arregloB[i];
+            contadorDeposicionC++;
+            arregloC[contadorDeposicionC]=arregloB[i];
+            contadorDeposicionC++;
+        }
+    }
+    return contadorDeposicionC;
+}
+*/
+int intercalarArray (char arregloA[], char arregloB[],char arregloC[], int validosA, int validosB, int dimC)
+{
+    int posA = 0;
+    int posB = 0;
+    int posC = 0;
+
+    while(posA < validosA && posB < validosB && posC < dimC){
+
+         if (arregloA[posA]<arregloB[posB])
+        {
+            arregloC[posC]=arregloA[posA];
+            posA++;
+        }
+        else
+        {
+            arregloC[posC]=arregloB[posB];
+            posB++;
+        }
+        posC++;
+    }
+
+    //en este punto uno de los dos arreglos se quedo sin elementos validos
+
+    while(posA < validosA){
+        arregloC[posC]=arregloA[posA];
+        posA++;
+        posC++;
+    }
+
+    while(posB < validosB){
+        arregloC[posC]=arregloB[posB];
+        posB++;
+        posC++;
+    }
+
+    return posC;
+}
+
+//13. Dado el vector {1,5,6,7,8} escribir un programa que genere otro vector con la suma del
+//contenido de todo los elementos anteriores al índice actual: {1,6,12,19,27}.\n\n
+
+void generarVectorSumatoria(int arregloEntrada[], int validosEntrada, int arregloSalida[], int validosSalida){
+
+    int acumulador = 0;
+
+    for(int i=0; i < validosEntrada; i++){
+        acumulador += arregloEntrada[i];
+        arregloSalida[i] = acumulador;
     }
 }

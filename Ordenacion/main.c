@@ -55,6 +55,9 @@ int posicionMenor(int a[], int cantVal, int pos){
     return posMenor;
 }
 
+//recorro el arreglo una vez
+//en cada posicion
+
 void ordenacionInsercion(int a[], int cantVal){
     int u=0;
     while(u < cantVal - 1){
@@ -63,7 +66,6 @@ void ordenacionInsercion(int a[], int cantVal){
         u++;
     }
 }
-
 
 
 
