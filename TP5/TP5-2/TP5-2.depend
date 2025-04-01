@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1743473805 source:e:\tecnicatura\programacion1\projects\tup\tp5\tp5-2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

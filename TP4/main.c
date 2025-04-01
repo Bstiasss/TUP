@@ -12,7 +12,7 @@ void mostrarArrayFloat (float arreglo[], int validos);//ej5 3
 int cargarArrayChar (char arreglo[], int dim);//ej6 1
 void mostrarArrayChar (char arreglo[], int validos);//ej6 1
 int encontrarElemento (char arreglo[], int validos, char caracterUsuario);//ej6 2
-void ordenarArray(char arrayDado[], int validos);
+void agregarCaracter(char arrayDado[], int validos, char caracterAgregar);
 char obtenerMaximoChar(char arreglo[], int validos);
 int determinarSiEsCapicua(int arreglo[],int validos);
 void invertirArreglo(int arreglo[], int validos);
@@ -184,11 +184,17 @@ int main()
 
             //pedirle al usuario la carga de un arreglo char
             validos = cargarArrayChar (arrayE7, 20);
-            //  printf("validos = %d", validos);
-            mostrarArrayChar(arrayE7, validos);
 
-            ordenarArray(arrayE7, validos);
             mostrarArrayChar(arrayE7, validos);
+            char caracterNuevo;
+
+            printf("\nIngrese un caracter a agregar en el array: \n");
+            fflush(stdin);
+            scanf("%c", &caracterNuevo);
+
+            agregarCaracter(arrayE7, validos, caracterNuevo);
+
+            mostrarArrayChar(arrayE7, validos + 1); //agrego 1 porque tiene otro elemento nuevo
 
             system("pause");
             system("cls");
@@ -499,51 +505,32 @@ int encontrarElemento (char arreglo[], int validos, char caracterUsuario)
     return estaOno;
 }
 
+//7-Realizar una función que inserte un carácter en un arreglo ordenado alfabéticamente, conservando el orden.
 
-void ordenarArray(char arrayDado[], int validos)
+void agregarCaracter(char arrayDado[], int validos, char caracterAgregar)
 {
-    char arrayAux[20];
-    char arrayOrdenado[20];
-    int cantidadOrdenado = 0;
-    int cantidadAux = 0;
+    int i=0;
+    int agregado = 0;
+    char aux;
+    char aux2;
 
+    //recorro el arreglo
+    while(i < validos + 1){
 
-    printf("indice dados en funcionn %i", validos);
-
-    while(validos > 0)
-    {
-
-        while(validos > 0 && arrayOrdenado[cantidadOrdenado - 1] > arrayDado[validos - 1])
-        {
-            cantidadAux++;
-            arrayAux[cantidadAux - 1] = arrayOrdenado[cantidadOrdenado - 1];
-
-            cantidadOrdenado--;
-
+        if(arrayDado[i] < caracterAgregar && caracterAgregar < arrayDado[i+1] && agregado == 0 ){
+            printf("Entro entre %c %c", arrayDado[i], arrayDado[i+1]);
+            aux = arrayDado[i+1];
+            arrayDado[i+1] = caracterAgregar;
+            agregado = 1;
         }
-        cantidadOrdenado++;
-        arrayOrdenado[cantidadOrdenado - 1] = arrayDado[validos - 1];
-        printf("Muestro ordenados");
-        mostrarArrayChar(arrayOrdenado,cantidadOrdenado);
-
-        validos--;
-
-        while(cantidadAux > 0)
-        {
-            cantidadOrdenado++;
-            arrayOrdenado[cantidadOrdenado] = arrayAux[cantidadAux];
-
-            cantidadAux--;
+        i++;
+        if(agregado == 1){
+            aux2 = arrayDado[i+1];
+            arrayDado[i+1] = aux;
+            aux = aux2;
 
         }
     }
-    for(int i = 0; i < validos; i++)
-    {
-
-        arrayDado[i] = arrayOrdenado[i];
-
-    }
-
 
 }
 
@@ -622,6 +609,12 @@ void invertirArreglo(int arreglo[], int validos)
 //y lo voy trayendo a la posicion actual
 //en cada vuelta
 
+
+//Ordenamiento por Selección
+
+//Este algoritmo recorre todos los elementos de un arreglo, "selecciona" al menor y lo ubica al comienzo.
+//Luego, repite este proceso pero con los elementos restantes del array.
+
 void ordenacionSeleccion(int a[], int cantVal)
 {
 
@@ -657,6 +650,13 @@ int posicionMenor(int a[], int cantVal, int pos)
 
     return posMenor;
 }
+
+
+//Ordenamiento por Inserción
+//Este algoritmo recibe cualquier valor que se encuentre
+// dentro del arreglo y busca el espacio correcto para "insertarlo".
+//Luego, repite el proceso hasta que queden ordenado
+
 
 void ordenacionInsercion(int a[], int cantVal)
 {
