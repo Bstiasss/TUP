@@ -37,6 +37,8 @@ int main()
     //espacio al final para que quede bien
     printf("\n\n");
 
+    system("pause");
+
     return 0;
 }
 
