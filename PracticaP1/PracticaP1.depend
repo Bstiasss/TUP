@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1745535832 source:e:\tecnicatura\programacion1\projects\tup\practicap1\pila.c
+	"pila.h"
+
+1745535833 e:\tecnicatura\programacion1\projects\tup\practicap1\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1745536987 source:e:\tecnicatura\programacion1\projects\tup\practicap1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pila.h"
+	<string.h>
+

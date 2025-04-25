@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1502980793 source:c:\users\caroarchu.carolina\desktop\tsp-program\mis ejercicios 1er parc\tparray ejerc 1 a 12\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pila.h"
+
+1238061600 source:c:\users\caroarchu.carolina\desktop\tsp-program\mis ejercicios 1er parc\tparray ejerc 1 a 12\pila.c
+	"pila.h"
+
+1238061608 c:\users\caroarchu.carolina\desktop\tsp-program\mis ejercicios 1er parc\tparray ejerc 1 a 12\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1238061600 source:e:\tsp\tsp-program 1\mis ejerc 1° parcial\tp4_arreglos\pila.c
+	"pila.h"
+
+1238061608 e:\tsp\tsp-program 1\mis ejerc 1° parcial\tp4_arreglos\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1513094709 source:e:\tsp\tsp-program 1\mis ejerc 1° parcial\tp4_arreglos\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pila.h"
+
+1238061600 source:c:\users\carol\documents\tsp\tsp program 1\5ta uni -arreglos\tp4_arreglos\pila.c
+	"pila.h"
+
+1238061608 c:\users\carol\documents\tsp\tsp program 1\5ta uni -arreglos\tp4_arreglos\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1650545378 source:c:\users\carol\documents\tsp\tsp program 1\5ta uni -arreglos\tp4_arreglos\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pila.h"
+
