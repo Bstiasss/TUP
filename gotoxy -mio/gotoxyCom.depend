@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1491400449 source:c:\users\techmdq\documents\pruebas\gotoxycom3\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1491400448 source:c:\users\techmdq\downloads\pruebas\programacion 1 - local\comision 2\gotoxy\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1491400448 source:c:\users\lucas\downloads\gotoxy (4)\gotoxy\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1587416004 source:c:\users\lucas\downloads\gotoxy (4)\gotoxy\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"gotoxy.h"
+
+1491399894 c:\users\lucas\downloads\gotoxy (4)\gotoxy\gotoxy.h
+
+1491400448 source:e:\tecnicatura\programacion1\projects\tup\gotoxy\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1587416004 source:e:\tecnicatura\programacion1\projects\tup\gotoxy\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"gotoxy.h"
+
+1491399894 e:\tecnicatura\programacion1\projects\tup\gotoxy\gotoxy.h
+
+1491400448 source:e:\tecnicatura\programacion1\projects\tup\gotoxy -mio\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1745729397 source:e:\tecnicatura\programacion1\projects\tup\gotoxy -mio\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"gotoxy.h"
+
+1491399894 e:\tecnicatura\programacion1\projects\tup\gotoxy -mio\gotoxy.h
+

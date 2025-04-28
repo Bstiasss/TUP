@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1492106583 source:c:\users\diego.severini\ora\menu\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1492106583 source:c:\users\lucas\downloads\menu (2)\menu\main.c
+	<stdio.h>
+	<stdlib.h>
+

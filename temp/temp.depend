@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1745717308 source:e:\tecnicatura\programacion1\projects\tup\temp\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1491400450 source:e:\tecnicatura\programacion1\projects\tup\temp\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+

@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1490112217 source:d:\lomuoio\parcial1\pila.c
+	"pila.h"
+
+1490112217 d:\lomuoio\parcial1\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1745607333 source:d:\lomuoio\parcial1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pila.h"
+	<string.h>
+
