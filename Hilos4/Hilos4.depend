@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1746143517 source:e:\tecnicatura\programacion1\projects\tup\hilos4\main.c
+	<stdio.h>
+	<stdlib.h>
+	<pthread.h>
+

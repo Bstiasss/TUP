@@ -40,10 +40,11 @@
 	<stdlib.h>
 	<windows.h>
 
-1745729397 source:e:\tecnicatura\programacion1\projects\tup\gotoxy -mio\main.c
+1746165460 source:e:\tecnicatura\programacion1\projects\tup\gotoxy -mio\main.c
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
+	<pthread.h>
 	"gotoxy.h"
 
 1491399894 e:\tecnicatura\programacion1\projects\tup\gotoxy -mio\gotoxy.h
