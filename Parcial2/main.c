@@ -251,13 +251,12 @@ void aumentarPuntos(char nombreArchivo[], float tCarrera)
     }
     else
     {
-        //int posiBytes;
         while(fread(&atleta, sizeof(Atleta), 1, archivo) > 0)
         {
             if(atleta.tiempoCarrera > tCarrera)
             {
                 printf("Despues de fread %i\n", ftell(archivo));
-                atleta.puntos = atleta.puntos + 5;
+              //  atleta.puntos = atleta.puntos + 5;
                 fseek(archivo, ftell(archivo) - 68 , SEEK_SET);
  //               fseek(archivo, sizeof(Atleta)*(-1), SEEK_CUR);
  //              fseek(archivo, -68 , SEEK_CUR);
