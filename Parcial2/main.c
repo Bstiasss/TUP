@@ -45,7 +45,7 @@ int main()
     pasarArchivoCategoria(nombreArcCategorias, arregloAtleta, validosArregloAtleta, categoriaElegida);
     printf("\n\nMostrando contenido de archivo %s \n", nombreArcCategorias);
     mostrarAtletasEnArchivo(nombreArcCategorias);
-/*
+
     //Ejercicio 4
     //duplicar en 2 archivos
     encontrarAtletaMenorTiempoyDuplicar(nombreArcCategorias);
@@ -56,18 +56,25 @@ int main()
 
     printf("\n\nMostrando contenido de archivo %s, luego de duplicar puntos:\n", nombreArcCategorias);
     mostrarAtletasEnArchivo(nombreArcCategorias);
-*/
+
     //Ejercicio 5
-    float tiempoCarreraA = 25;
+
+    float tiempoCarreraA = 5;
     aumentarPuntos(nombreArchivo, tiempoCarreraA);
-/*
+
+    printf("\n\nMostrando contenido de archivo %s, luego de sumar 5 puntos a atleta.:\n", nombreArchivo);
+    mostrarAtletasEnArchivo(nombreArchivo);
+
+
     //Ejercicio 6
 
-    char nombreAbuscar[] = "Jose";
+    char nombreAbuscar[] = "Pedro";
     if(verificarAtleta(arregloAtleta, validosArregloAtleta, 0, nombreAbuscar)){
-        printf("El atleta existe");
+        printf("El atleta llamado %s SI existe", nombreAbuscar);
+    }else{
+        printf("El atleta llamado %s NO existe", nombreAbuscar);
     }
-*/
+
     return 0;
 }
 
@@ -255,17 +262,10 @@ void aumentarPuntos(char nombreArchivo[], float tCarrera)
         {
             if(atleta.tiempoCarrera > tCarrera)
             {
-                printf("Despues de fread %i\n", ftell(archivo));
-              //  atleta.puntos = atleta.puntos + 5;
-                fseek(archivo, ftell(archivo) - 68 , SEEK_SET);
- //               fseek(archivo, sizeof(Atleta)*(-1), SEEK_CUR);
- //              fseek(archivo, -68 , SEEK_CUR);
-                printf("Antes de fwrite %i \n", ftell(archivo));
-             //   fseek(archivo, sizeof(Atleta), SEEK_CUR);
+                atleta.puntos = atleta.puntos + 5;
+                fseek(archivo, sizeof(Atleta)*(-1) , SEEK_CUR);
                 fwrite(&atleta, sizeof(Atleta), 1, archivo);
-                printf("Despues de fwrite %i \n", ftell(archivo));
-
-
+                fseek(archivo, 0 , SEEK_CUR); //Esto es por un error de C
             }
         }
         fclose(archivo);
@@ -276,19 +276,15 @@ void aumentarPuntos(char nombreArchivo[], float tCarrera)
 // Hacer una función que verifique si existe un atleta en el arreglo mediante su nombre, de forma recursiva.
 
 int verificarAtleta(Atleta arregloAtleta[], int validos, int pos, char nombre[]){
+
     int existe = 0;
-    if(pos == validos -1){
+    if(pos < validos){
         if(strcmp(arregloAtleta[pos].nombre, nombre) == 0){
             existe = 1;
+        }else{
+            existe = verificarAtleta(arregloAtleta, validos, pos + 1, nombre);
         }
-    }else{
-        if(strcmp(arregloAtleta[pos].nombre, nombre) == 0){
-            existe = 1;
-        }
-        existe = verificarAtleta(arregloAtleta, validos, pos + 1, nombre);
     }
-
-
     return existe;
 }
 
